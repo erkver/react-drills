@@ -8,7 +8,7 @@ class InputUpdater extends Component {
         }
     }
 
-    updateUserInput(e) {
+    updateUserInput = (e) => {
         this.setState({userInput: e.target.value});
     }
     render() {
