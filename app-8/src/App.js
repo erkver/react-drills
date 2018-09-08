@@ -1,18 +1,29 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import axios from 'axios';
 import './App.css';
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      deathStar: ""
+    }
+  }
+
+  componentDidMount() {
+    axios.get('https://swapi.co/api/starships/9/')
+    .then(res => {
+      this.setState({deathStar: res.data});
+    })
+  }
+
   render() {
     return (
       <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+          <h2>{this.state.deathStar.name}</h2>
+          <h2>{this.state.deathStar.model}</h2>
+          <h2>{this.state.deathStar.passengers}</h2>
+          <h2>{this.state.deathStar.starship_class}</h2>
       </div>
     );
   }
