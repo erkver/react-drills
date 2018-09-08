@@ -36,7 +36,10 @@ class App extends Component {
     return (
       <div className="App">
         <h1>My to-do List:</h1>
-        <input onChange={e => this.handleChange(e)}></input>
+        <input
+        value={this.state.userInput}
+        placeholder="Enter new task" 
+        onChange={e => this.handleChange(e)}></input>
         <button onClick={() => this.addToList(this.state.userInput)}>Add</button>
         { newItem }
       </div>
