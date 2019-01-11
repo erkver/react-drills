@@ -4,14 +4,14 @@ import './App.css';
 class App extends Component {
   constructor() {
     super();
-
     this.state = {
       food: ["spaghetti", "ice cream", "sushi", "bologna", "cheese"]
-    }
+    };
   }
 
   render() {
-    let foodCopy = this.state.food.map((e, i) => {
+    const { food } = this.state;
+    let foodCopy = food.map((e, i) => {
       return(
         <h2 key={ i }>{ e }</h2>
       );
