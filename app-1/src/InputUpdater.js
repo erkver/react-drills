@@ -12,9 +12,10 @@ class InputUpdater extends Component {
         this.setState({userInput: e.target.value});
     }
     render() {
+        const { userInput } = this.state;
         return (
             <div>
-                <input onChange={e => this.updateUserInput(e)}></input>
+                <input value={userInput} onChange={e => this.updateUserInput(e)}></input>
                 <h1>{this.state.userInput}</h1>
             </div>
         );
