@@ -1,13 +1,12 @@
 import React from "react";
 import Todo from "./Todo";
 
-const List = (props) => {
-    let newItem = props.tasks
-    .map((e, i) => {
+const List = ({tasks}) => {
+    let newItem = tasks.map((e, i) => {
         return(
             <Todo 
-            key={i}
-            item={e}
+                key={i}
+                item={e}
             />
         )
     });

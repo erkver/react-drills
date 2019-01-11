@@ -13,17 +13,20 @@ class NewTask extends Component {
     }
 
     handleAdd = () => {
-        this.props.add(this.state.userInput);
+        const { add } = this.props;
+        const { userInput } = this.state;
+        add(userInput);
         this.setState({userInput: ""})
     }
 
     render() {
+        const { userInput } = this.state;
         return (
             <div>
                 <input
-                value={this.state.userInput}
-                placeholder="Enter new task" 
-                onChange={e => this.handleChange(e)}  
+                    value={userInput}
+                    placeholder="Enter new task" 
+                    onChange={e => this.handleChange(e)}  
                 />
                 <button onClick={this.handleAdd}>Add</button>
             </div>

@@ -18,12 +18,13 @@ class App extends Component {
   }
 
   render() {
+    const { name, model, passengers, starship_class } = this.state.deathStar;
     return (
       <div className="App">
-          <h2>{this.state.deathStar.name}</h2>
-          <h2>{this.state.deathStar.model}</h2>
-          <h2>{this.state.deathStar.passengers}</h2>
-          <h2>{this.state.deathStar.starship_class}</h2>
+          <h2>{name}</h2>
+          <h2>{model}</h2>
+          <h2>{passengers}</h2>
+          <h2>{starship_class}</h2>
       </div>
     );
   }

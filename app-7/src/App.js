@@ -13,17 +13,18 @@ class App extends Component {
 
   addToList = (item) => {
     const { list } = this.state;
-    let itemArr = list.slice();
+    let itemArr = list;
     itemArr.push(item);
     this.setState({list: itemArr, userInput: ""});
   }
 
   render() {
+    const { list } = this.state;
     return (
       <div className="App">
         <h1>My to-do List:</h1>
         <NewTask add={this.addToList}/> 
-        <List tasks={this.state.list}/>
+        <List tasks={list}/>
       </div>
     );
   }

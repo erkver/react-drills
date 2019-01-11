@@ -9,12 +9,9 @@ class Login extends Component {
         }
     }
 
-    handleUsername = (e) => {
-        this.setState({username: e.target.value});
-    }
-
-    handlePassword = (e) => {
-        this.setState({password: e.target.value});
+    handleChange = e => {
+        console.log(e.target.name);
+        this.setState({[e.target.name]: e.target.value})
     }
 
     alertInfo = (user, pass) => {
@@ -23,13 +20,15 @@ class Login extends Component {
     }
 
     render() {
-        return(
-            <div>
-                <input onChange={e => this.handleUsername(e)}></input>
-                <input onChange={e => this.handlePassword(e)}></input>
-                <button onClick={() => this.alertInfo(this.state.username, this.state.password)}>Login</button>
-            </div>
-        );
+        const { username, password } = this.state;
+        console.log(this.state)
+        return <div>
+            <input name="username" value={username} onChange={e => this.handleChange(e)} />
+            <input name="password" value={password} onChange={e => this.handleChange(e)} />
+            <button onClick={() => this.alertInfo(username, password)}>
+              Login
+            </button>
+          </div>;
     }
 }
 

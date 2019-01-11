@@ -23,12 +23,12 @@ class App extends Component {
   }
 
   render() {
-    let newItem = this.state.list
-    .map((e, i) => {
+    const { list, userInput } = this.state;
+    let newItem = list.map((e, i) => {
       return(
         <Todo 
-        key={i}
-        item={e}
+          key={i}
+          item={e}
         />
       );
     });
@@ -37,10 +37,11 @@ class App extends Component {
       <div className="App">
         <h1>My to-do List:</h1>
         <input
-        value={this.state.userInput}
-        placeholder="Enter new task" 
-        onChange={e => this.handleChange(e)}></input>
-        <button onClick={() => this.addToList(this.state.userInput)}>Add</button>
+          value={userInput}
+          placeholder="Enter new task" 
+          onChange={e => this.handleChange(e)} 
+        />
+        <button onClick={() => this.addToList(userInput)}>Add</button>
         { newItem }
       </div>
     );
